@@ -222,5 +222,32 @@
       <p>All rights reserved.</p>
     </footer>
 
+    <script>
+      const form = document.getElementById('contact-form');
+
+      form.addEventListener('submit', async function(e) {
+	e.preventDefault();
+
+	const formData = new FormData(form);
+
+	try {
+	  const response = await fetch('https://api.web3forms.com/submit', {
+	    method: 'POST',
+	    body: formData
+	  });
+
+	  const result = await response.json();
+
+	  if (result.success) {
+	    // Redirects locally inside the browser on Free Plan
+	    window.location.href = 'https://terry-sydaus.github.io/terry-control-eng-cv-landing-page/thanks.html';
+	  } else {
+	    alert('Submission failed: ' + result.message);
+	  }
+	} catch (error) {
+	  alert('Network error. Please try again.');
+	}
+      });
+    </script>
   </body>
 </html>
