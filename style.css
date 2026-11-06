@@ -213,23 +213,61 @@ section h1 {
   box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
 }
 
+/* Base Button Styling */
 .submit-btn {
-  display: inline-block;
-  width: 100%; /* Full width on mobile */
-  padding: 0.75rem 1.5rem;
-  font-family: Nunito, sans-serif;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  width: 100%;                  /* Mobile-first full width */
+  padding: 0.85rem 1.75rem;
+  font-family: inherit;         /* Uses site font */
   font-size: 1rem;
   font-weight: 600;
-  color: #fff;
-  background-color: #404040;
-  border: none;
-  border-radius: 4px;
+  color: #ffffff;
+  background-color: #0056b3;    /* Professional deep engineering blue */
+  border: 1px solid #0056b3;
+  border-radius: 6px;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease-in-out;
 }
 
+/* Hover State */
 .submit-btn:hover {
-  background-color: #111;
+  background-color: #004085;
+  border-color: #003768;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transform: translateY(-1px);  /* Subtle lift effect */
+}
+
+/* Active State (Click) */
+.submit-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Focus State (Accessibility) */
+.submit-btn:focus-visible {
+  outline: 3px solid #80bdff;
+  outline-offset: 2px;
+}
+
+/* Icon Animation on Hover */
+.submit-btn i {
+  transition: transform 0.2s ease-in-out;
+}
+
+.submit-btn:hover i {
+  transform: translateX(3px) translateY(-1px);
+}
+
+/* Desktop Width Adjustment */
+@media (min-width: 768px) {
+  .submit-btn {
+    width: auto;
+    min-width: 180px;
+  }
 }
 
 /* Standalone thanks.html styling */
